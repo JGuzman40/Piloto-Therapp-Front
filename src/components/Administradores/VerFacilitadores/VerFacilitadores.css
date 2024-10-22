@@ -1,0 +1,22 @@
+.ver-facilitadores {
+  padding: 20px;
+  background-color: var(--primary-color); /* Color de fondo suave */
+}
+
+.ver-facilitadores h2 {
+  color: var(--secondary-color); /* Color del encabezado */
+}
+
+.facilitadores-list {
+  list-style-type: none; /* Sin viñetas */
+  padding: 0; /* Sin padding */
+}
+
+.facilitador-item {
+  background-color: var(--secondary-color); /* Fondo blanco para los ítems */
+  color: var(--primary-color);
+  margin: 10px 0; /* Espacio entre ítems */
+  padding: 15px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}

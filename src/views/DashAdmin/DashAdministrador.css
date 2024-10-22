@@ -1,0 +1,23 @@
+.dashboard-admin {
+  display: flex;
+  flex-direction: row; /* Asegúrate de que la barra lateral y el contenido se alineen horizontalmente */
+  height: 100vh; /* O la altura que desees para el dashboard */
+  background-color: var(--primary-color);
+}
+
+.sidebar-admin {
+  width: 250px; /* Ancho de la barra lateral */
+  background-color: var(
+    --secondary-color
+  ); /* Color de fondo para la barra lateral */
+  color: var(--primary-color);
+  padding: 20px; /* Espaciado interior */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+}
+
+.dashboard-content {
+  flex: 1; /* Esto hace que el contenido ocupe el resto del espacio */
+  padding: 20px; /* Espaciado interior */
+  background-color: var(--primary-color); /* Color de fondo para el contenido */
+  overflow-y: auto; /* Permitir desplazamiento vertical si el contenido es largo */
+}

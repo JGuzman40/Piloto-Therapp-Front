@@ -1,23 +1,33 @@
-import TherappLogo from "./assets/TherappLogo.png";
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import LandingTherapp from "../src/views/LandingTherapp/LandingTherapp";
+import Navbar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
+
+import DashboardAdmin from "./views/DashAdmin/DashAdministrador";
+import "./index.css"; // Asegúrate de que este archivo contenga tus estilos CSS
+import DashboardFacilitador from "./views/DashFacilitador/DashFacilitador";
 
 function App() {
   return (
-    <>
-      <div>
-        <a href="http://localhost:5173/" target="_blank">
-          <img src={TherappLogo} className="logo" alt="Therapp Logo" />
-        </a>
-      </div>
-      <h1>Gestión de Eventos Terapeuticos</h1>
-      <div className="card">
-        <p>
-          La plataforma busca optimizar el proceso de registro de eventos
-          terapéuticos, gestión de participantes y documentación, todo ello en
-          un formato seguro e intuitivo.
-        </p>
-      </div>
-    </>
+    <div className="app-container">
+      {" "}
+      {/* Contenedor principal */}
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<LandingTherapp />} />
+          <Route
+            path="/dashboard-administrador/*"
+            element={<DashboardAdmin />}
+          />
+          <Route
+            path="/dashboard-facilitador/*"
+            element={<DashboardFacilitador />}
+          />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
   );
 }
 

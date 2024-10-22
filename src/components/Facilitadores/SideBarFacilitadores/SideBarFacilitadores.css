@@ -1,0 +1,52 @@
+/* SideBarFacilitador.css */
+
+.sidebar-facilitador {
+  width: 250px;
+  background-color: #530161; /* Mismo color de fondo que el Sidebar Admin */
+  color: #e7a2eb; /* Mismo color de texto que el Sidebar Admin */
+  padding: 1rem;
+  height: 100vh; /* Altura completa de la ventana */
+}
+
+.sidebar-facilitador h2 {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.sidebar-btn {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #77038c; /* Mismo color de fondo para el botón */
+  color: #fff; /* Color de texto blanco */
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.sidebar-btn:hover {
+  background-color: #e7a2eb; /* Mismo color de hover */
+  color: #530161; /* Mismo color de texto en hover */
+}
+
+.facilitador-options {
+  margin-top: 1rem;
+}
+
+.sidebar-sub-btn {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background-color: #77038c; /* Mismo color de fondo para los botones secundarios */
+  color: #fff; /* Color de texto blanco */
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.sidebar-sub-btn:hover {
+  background-color: #e7a2eb; /* Mismo color de hover para botones secundarios */
+  color: #530161; /* Mismo color de texto en hover */
+}

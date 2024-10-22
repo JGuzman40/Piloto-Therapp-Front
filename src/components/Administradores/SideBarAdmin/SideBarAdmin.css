@@ -1,0 +1,50 @@
+.sidebar-admin {
+  width: 250px;
+  background-color: #530161;
+  color: #e7a2eb;
+  padding: 1rem;
+  height: 100vh;
+}
+
+.sidebar-admin h2 {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.sidebar-btn {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #77038c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.sidebar-btn:hover {
+  background-color: #e7a2eb;
+  color: #530161;
+}
+
+.facilitadores-options {
+  margin-top: 1rem;
+}
+
+.sidebar-sub-btn {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background-color: #77038c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.sidebar-sub-btn:hover {
+  background-color: #e7a2eb;
+  color: #530161;
+}

@@ -1,0 +1,72 @@
+.landing-therapp {
+  width: 80%;
+  text-align: center;
+  padding: 2rem;
+  margin: auto;
+}
+
+.landing-header {
+  margin-bottom: 2rem;
+}
+
+.landing-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Espacio entre el texto y el formulario */
+  align-items: flex-start; /* Alinear el contenido al inicio */
+}
+
+.landing-features {
+  flex: 1; /* Ocupa el mismo espacio que el formulario */
+  margin-top: 30px;
+  text-align: right; /* Alinear el texto a la izquierda */
+}
+
+.landing-features ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.landing-features li {
+  margin: 0.5rem;
+}
+
+.landing-call-to-action {
+  flex: 1; /* Ocupa el mismo espacio que el texto */
+  margin-left: 0.5rem; /* Separación entre el formulario y el texto */
+}
+
+.cta-button {
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: var(--hover-bg-color);
+  color: var(--hover-text-color);
+}
+
+/* Media queries para hacer el componente responsivo */
+@media (max-width: 768px) {
+  .landing-therapp {
+    padding: 1rem;
+  }
+
+  .landing-content {
+    flex-direction: column; /* Colocar el texto y el formulario uno debajo del otro en pantallas pequeñas */
+  }
+
+  .landing-call-to-action {
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+
+  .cta-button {
+    padding: 0.75rem 1.5rem;
+  }
+}

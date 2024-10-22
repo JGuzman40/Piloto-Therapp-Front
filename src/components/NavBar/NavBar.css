@@ -1,0 +1,73 @@
+.navbar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem 2rem;
+  background-color: #77038c;
+  margin: auto;
+}
+
+.navbar-logo img {
+  height: 40px; /* Altura del logo */
+}
+
+.navbar-menu {
+  display: flex; /* Muestra el menú como flex */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu li {
+  margin: 0 1rem; /* Espaciado entre elementos */
+}
+
+.navbar-menu a {
+  color: var(--secondary-color); /* Usando el color de texto global */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar-menu a:hover {
+  color: var(--hover-text-color); /* Color en hover */
+}
+
+.navbar-login .login-button {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color); /* Fondo global */
+  color: var(--secondary-color); /* Texto global */
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-login .login-button:hover {
+  background-color: var(--hover-bg-color); /* Fondo en hover */
+  color: var(--hover-text-color); /* Texto en hover */
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Cambia la dirección a columna */
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+  }
+
+  .navbar-menu {
+    flex-direction: row; /* Cambia el menú a una fila */
+    width: 100%; /* Asegúrate de que ocupe todo el ancho */
+  }
+
+  .navbar-login {
+    margin-top: 1rem; /* Añade margen superior para separar del menú */
+  }
+}
+
+/* Muestra el botón hamburguesa en pantallas pequeñas */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Muestra el botón en pantallas pequeñas */
+  }
+}

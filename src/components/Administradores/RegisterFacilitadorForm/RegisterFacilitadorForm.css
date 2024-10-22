@@ -1,0 +1,59 @@
+.registrar-facilitador {
+  max-width: 500px; /* Limita el ancho máximo del formulario */
+  margin: 0 auto; /* Centra el formulario horizontalmente */
+  padding: 20px;
+  background-color: var(--primary-color); /* Fondo suave */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para el contenedor */
+}
+
+.registrar-facilitador h2 {
+  text-align: center; /* Centra el título */
+  color: var(--secondary-color); /* Color del título */
+  margin-bottom: 20px; /* Espacio inferior */
+}
+
+.form {
+  display: flex;
+  flex-direction: column; /* Los campos en columna */
+  gap: 15px; /* Espacio entre los elementos */
+}
+
+.form input,
+.form select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid var(--secondary-color); /* Borde gris claro */
+  border-radius: 5px; /* Bordes redondeados */
+  width: 100%; /* Que los campos ocupen todo el ancho */
+  box-sizing: border-box; /* Evita que el padding desborde */
+  transition: border-color 0.3s ease; /* Animación suave en el foco */
+}
+
+.form input:focus,
+.form select:focus {
+  border-color: var(--primary-color); /* Color del borde al enfocar */
+  outline: none; /* Quita el borde por defecto */
+}
+
+.form button {
+  padding: 12px;
+  font-size: 16px;
+  background-color: var(--primary-color); /* Color principal */
+  color: var(--secondary-color); /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 15px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor de pointer */
+  transition: background-color 0.3s ease; /* Animación de color */
+}
+
+.form button:hover {
+  background-color: var(--secondary-color); /* Color de hover */
+  color: var(--primary-color);
+}
+
+.error {
+  color: red; /* Color para los mensajes de error */
+  font-size: 14px; /* Tamaño más pequeño */
+  margin-top: -10px; /* Ajusta el espacio encima del error */
+}

@@ -1,11 +1,17 @@
 :root {
+  --primary-color: #530161; /* Color de fondo principal */
+  --secondary-color: #e7a2eb; /* Color de texto principal */
+  --hover-bg-color: #e7a2eb; /* Color de fondo en hover */
+  --hover-text-color: #d835f5; /* Color de texto en hover */
+
+  /* Tipografía global */
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 200;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #530161;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,56 +19,30 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+html,
+body {
+  height: 100%;
+  margin: 0;
 }
 
-body {
-  margin: 0;
+.app-container {
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  flex-direction: column;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+main {
+  flex: 1; /* Este es el espacio que ocupará tu contenido principal */
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Aquí van tus estilos de footer */
+.footer {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 1rem;
+  margin: auto;
+  background-color: #77038c; /* Usando el color de fondo global */
+  color: var(--secondary-color); /* Usando el color de texto global */
 }
