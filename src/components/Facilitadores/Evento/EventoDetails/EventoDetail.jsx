@@ -6,7 +6,7 @@ import { getSessions } from "../../../../redux/eventos/GetProgramacionSesionSlic
 import { getSegments } from "../../../../redux/eventos/GetSegmentsSlices";
 
 const EventDetail = () => {
-  const { id } = useParams(); // Obtiene el ID del evento de la URL
+  const { id } = useParams();
   const dispatch = useDispatch();
 
   // Accede a los estados de eventos, sesiones y segmentos
@@ -16,27 +16,27 @@ const EventDetail = () => {
   const loadingEventos = useSelector((state) => state.eventos.loading);
   const loadingSegmentos = useSelector((state) => state.segmentos.loading);
 
-  // Encuentra el evento actual por ID
   const eventoActual = eventos.find((evento) => evento.id === Number(id));
 
   useEffect(() => {
-    if (!eventos.length) dispatch(getEventos()); // Carga los eventos si no están ya cargados
-    if (eventoActual) dispatch(getSessions(eventoActual.id)); // Carga las sesiones del evento actual
-    if (eventoActual && !segmentos.length)
-      dispatch(getSegments(eventoActual.id)); // Carga los segmentos específicos del evento actual
-  }, [dispatch, eventos, eventoActual, segmentos.length]);
+    if (!eventos.length) dispatch(getEventos());
+    if (eventoActual) dispatch(getSessions(eventoActual.id));
+    if (eventoActual) dispatch(getSegments(eventoActual.id));
+  }, [dispatch, eventos, eventoActual]);
 
   if (loadingEventos || loadingSegmentos)
     return <div>Cargando el evento...</div>;
   if (!eventoActual) return <div>No se encontró el evento con ID {id}.</div>;
 
-  // Filtra las sesiones y segmentos para mostrar solo los que pertenecen al evento actual
   const sessionsFiltradas = sessions.filter(
     (session) => session.eventId === eventoActual.id
   );
   const segmentsFiltrados = segmentos.filter(
     (segment) => segment.eventId === eventoActual.id
   );
+
+  console.log("sessionsFiltradas:", sessionsFiltradas); // Verifica datos de sesiones
+  console.log("segmentsFiltrados:", segmentsFiltrados); // Verifica datos de segmentos
 
   return (
     <div>
@@ -45,7 +45,6 @@ const EventDetail = () => {
       <img src={eventoActual.eventImage} alt={eventoActual.eventName} />
       <p>Estado: {eventoActual.isActive ? "Activo" : "Inactivo"}</p>
 
-      {/* Programación de Sesiones */}
       <h3>Programación de Sesiones</h3>
       {sessionsFiltradas.length > 0 ? (
         sessionsFiltradas.map((session) => (
@@ -64,7 +63,6 @@ const EventDetail = () => {
         <p>No hay sesiones programadas para este evento.</p>
       )}
 
-      {/* Segmentos de Contenido */}
       <h3>Segmentos de Contenido</h3>
       {segmentsFiltrados.length > 0 ? (
         segmentsFiltrados.map((segment) => (
