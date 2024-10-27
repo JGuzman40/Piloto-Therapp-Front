@@ -1,0 +1,18 @@
+.event-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espaciado entre las tarjetas */
+}
+
+.event-card {
+  border: 1px solid #ccc; /* Borde de la tarjeta */
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 16px; /* Espaciado interno */
+  width: 300px; /* Ancho de la tarjeta */
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+}
+
+.event-card img {
+  max-width: 100%; /* Imagen responsiva */
+  border-radius: 4px; /* Bordes redondeados para la imagen */
+}
