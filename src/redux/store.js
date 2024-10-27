@@ -5,6 +5,8 @@ import FacilitadoresSlice from "./registerFacilitador/registerFacilitadorSlice";
 import CreateEventoSlice from "./eventos/CreateEventoSlice";
 import EventosSlice from "./eventos/GetEventosSlice";
 import SessionSlice from "./eventos/GetProgramacionSesionSlice";
+import SegmentsEventoSlice from "./eventos/SegmentsEventosSlice";
+import GetSegmentosSlice from "./eventos/GetSegmentsSlices";
 
 const store = configureStore({
   reducer: {
@@ -13,6 +15,8 @@ const store = configureStore({
     evento: CreateEventoSlice,
     eventos: EventosSlice,
     sessions: SessionSlice,
+    segments: SegmentsEventoSlice,
+    segmentos: GetSegmentosSlice,
   },
 });
 

@@ -46,7 +46,7 @@ const SessionesForm = () => {
         dispatch(createSession(values))
           .unwrap()
           .then(() => {
-            navigate(`/dashboard-facilitador/eventodetail/${eventId}`);
+            navigate(`/dashboard-facilitador/eventodetail${eventId}`);
           })
           .catch((error) => {
             console.error("Error al crear la sesión: ", error);

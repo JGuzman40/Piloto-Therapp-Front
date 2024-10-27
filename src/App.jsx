@@ -2,10 +2,9 @@ import { Routes, Route } from "react-router-dom";
 import LandingTherapp from "../src/views/LandingTherapp/LandingTherapp";
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-
 import DashboardAdmin from "./views/DashAdmin/DashAdministrador";
-import "./index.css"; // Asegúrate de que este archivo contenga tus estilos CSS
 import DashboardFacilitador from "./views/DashFacilitador/DashFacilitador";
+import "./index.css"; // Asegúrate de que este archivo contenga tus estilos CSS
 
 function App() {
   return (

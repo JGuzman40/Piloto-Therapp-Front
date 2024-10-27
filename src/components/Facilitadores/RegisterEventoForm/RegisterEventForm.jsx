@@ -17,17 +17,22 @@ const RegisterEventForm = () => {
   };
 
   const validationSchema = Yup.object({
-    eventType: Yup.string().required("Tipo de evento es requerido"), // Cambiado de type a eventType
-    eventName: Yup.string().required("Nombre del evento es requerido"), // Cambiado de name a eventName
+    eventType: Yup.string().required("Tipo de evento es requerido"),
+    eventName: Yup.string().required("Nombre del evento es requerido"),
     eventImage: Yup.string()
       .url("URL de imagen inválida")
-      .required("Imagen del evento es requerida"), // Cambiado de imageUrl a eventImage
+      .required("Imagen del evento es requerida"),
     description: Yup.string().required("Descripción es requerida"),
   });
 
   const handleSubmit = async (values) => {
-    dispatch(createEvento(values)); // Despacha la acción para crear el evento
-    navigate("/dashboard-facilitador/eventos/ver"); // Redirige a la vista de eventos
+    const actionResult = await dispatch(createEvento(values)); // Despacha la acción para crear el evento
+
+    // Aquí asumimos que createEvento devuelve el id del evento creado
+    if (actionResult.meta.requestStatus === "fulfilled") {
+      const eventId = actionResult.payload.id; // Asegúrate de que el id del evento se devuelva correctamente
+      navigate(`/dashboard-facilitador/eventodetail/${eventId}/sesiones`); // Redirige a la página de programar sesiones
+    }
   };
 
   return (
