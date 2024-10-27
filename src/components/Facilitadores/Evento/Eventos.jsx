@@ -40,7 +40,7 @@ const EventList = () => {
               <img src={evento.eventImage} alt={evento.eventName} />
               <p>Estado: {evento.isActive ? "Activo" : "Inactivo"}</p>
               <button onClick={() => handleSelectEvento(evento.id)}>
-                Seleccionar Evento
+                Ver Detalles
               </button>
               {/* Resto de la tarjeta */}
             </div>

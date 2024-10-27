@@ -1,42 +1,42 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Define una acción asíncrona para obtener las sesiones
+// Acción asíncrona para obtener sesiones de un evento
 export const getSessions = createAsyncThunk(
-  "sesiones/getAllSessions",
-  async (_, { rejectWithValue }) => {
+  "sessions/getSessions",
+  async (eventId, { rejectWithValue }) => {
     try {
-      const response = await axios.get("http://localhost:3001/therapp/session"); // Ajusta la URL según tu API
-      return response.data; // Devuelve la lista de sesiones
+      const response = await axios.get(
+        `http://localhost:3001/therapp/session?eventId=${eventId}`
+      );
+      return response.data;
     } catch (error) {
-      return rejectWithValue(error.response.data); // Maneja el error
+      return rejectWithValue(error.response.data);
     }
   }
 );
 
-const ProgramacionSessionSlice = createSlice({
-  name: "sesiones",
+const SessionsSlice = createSlice({
+  name: "sessions",
   initialState: {
-    sesiones: [],
+    sessions: [],
     loading: false,
     error: null,
   },
-  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getSessions.pending, (state) => {
         state.loading = true;
-        state.error = null;
       })
       .addCase(getSessions.fulfilled, (state, action) => {
         state.loading = false;
-        state.sesiones = action.payload; // Guarda la lista de sesiones
+        state.sessions = action.payload;
       })
       .addCase(getSessions.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload; // Guarda el error
+        state.error = action.payload;
       });
   },
 });
 
-export default ProgramacionSessionSlice.reducer;
+export default SessionsSlice.reducer;

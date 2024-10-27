@@ -1,31 +1,34 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getEventos } from "../../../../redux/eventos/GetEventosSlice"; // Asegúrate de importar la acción
+import { getEventos } from "../../../../redux/eventos/GetEventosSlice";
+import { getSessions } from "../../../../redux/eventos/GetProgramacionSesionSlice";
 
 const EventDetail = () => {
-  const { id } = useParams(); // Obtén el ID del evento de la URL
+  const { id } = useParams(); // Obtiene el ID del evento de la URL
   const dispatch = useDispatch();
 
-  // Accedemos al estado de eventos y el estado de carga
+  // Accede a los estados de eventos y sesiones
   const eventos = useSelector((state) => state.eventos.eventos);
+  const sessions = useSelector((state) => state.sessions.sessions); // Ajusta si tu estado es diferente
   const loading = useSelector((state) => state.eventos.loading);
 
-  // Busca el evento actual una vez que loading es false y eventos está disponible
+  // Encuentra el evento actual por ID
   const eventoActual = eventos.find((evento) => evento.id === Number(id));
 
   useEffect(() => {
-    if (!eventos.length) {
-      // Solo despacha la acción si no hay eventos cargados
-      dispatch(getEventos());
-    }
-  }, [dispatch, eventos]);
+    if (!eventos.length) dispatch(getEventos()); // Carga los eventos si no están ya cargados
+    if (eventoActual) dispatch(getSessions(eventoActual.id)); // Carga las sesiones del evento actual
+  }, [dispatch, eventos, eventoActual]);
 
-  // Muestra un mensaje de carga si el estado está cargando
   if (loading) return <div>Cargando el evento...</div>;
 
-  // Si el evento no se encuentra, muestra un mensaje de error
   if (!eventoActual) return <div>No se encontró el evento con ID {id}.</div>;
+
+  // Filtra las sesiones para mostrar solo las que pertenecen al evento actual
+  const sessionsFiltradas = sessions.filter(
+    (session) => session.eventId === eventoActual.id
+  );
 
   return (
     <div>
@@ -33,7 +36,25 @@ const EventDetail = () => {
       <p>Descripción: {eventoActual.description}</p>
       <img src={eventoActual.eventImage} alt={eventoActual.eventName} />
       <p>Estado: {eventoActual.isActive ? "Activo" : "Inactivo"}</p>
-      {/* Aquí puedes agregar más secciones o detalles sobre el evento */}
+
+      {/* Muestra la programación de sesiones */}
+      <h3>Programación de Sesiones</h3>
+      {sessionsFiltradas.length > 0 ? (
+        sessionsFiltradas.map((session) => (
+          <div key={session.id}>
+            <h4>{session.name}</h4>
+            <p>Hora: {session.time}</p>
+            <p>
+              Enlace: <a href={session.meetingLink}>{session.meetingLink}</a>
+            </p>
+            <p>Mensaje: {session.message}</p>
+            <p>Días: {session.days}</p>
+            <p>Fechas: {session.dates.join(", ")}</p>
+          </div>
+        ))
+      ) : (
+        <p>No hay sesiones programadas para este evento.</p>
+      )}
     </div>
   );
 };

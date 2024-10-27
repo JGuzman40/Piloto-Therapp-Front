@@ -3,18 +3,19 @@ import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { createSession } from "../../../../redux/eventos/ProgramaSessionSlice";
+import { useEffect } from "react";
 
 const SessionesForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { id } = useParams(); // Obtiene el id del evento desde la URL
-  const eventos = useSelector((state) => state.eventos.eventos); // Accede a los eventos desde Redux
-  const selectedEvento = useSelector((state) => state.eventos.selectedEvento); // Obtiene el evento seleccionado si no está en la URL
+  const { id } = useParams();
+  const eventos = useSelector((state) => state.eventos.eventos);
+  const selectedEvento = useSelector((state) => state.eventos.selectedEvento);
+
   const eventoActual =
     eventos.find((evento) => evento.id === Number(id)) ||
     eventos.find((evento) => evento.id === selectedEvento);
 
-  // Verifica si existe el evento y asigna el ID correspondiente
   const eventId = eventoActual ? eventoActual.id : null;
 
   const formik = useFormik({
@@ -24,8 +25,8 @@ const SessionesForm = () => {
       meetingLink: "",
       message: "",
       days: "",
-      dates: [], // Campo para las fechas
-      eventId: eventId || "", // Incluye el eventId aquí
+      dates: [],
+      eventId: eventId || "",
     },
     validationSchema: Yup.object({
       name: Yup.string().required("El nombre es requerido"),
@@ -40,19 +41,30 @@ const SessionesForm = () => {
         .max(6, "No puede agregar más de 6 fechas"),
     }),
     onSubmit: (values) => {
-      // Envío de los datos del formulario
-      dispatch(createSession(values))
-        .unwrap()
-        .then(() => {
-          navigate("/dashboard-facilitador/eventos"); // Redirige tras el éxito
-        })
-        .catch((error) => {
-          console.error("Error al crear la sesión: ", error);
-        });
+      if (eventId) {
+        values.eventId = eventId;
+        dispatch(createSession(values))
+          .unwrap()
+          .then(() => {
+            navigate(`/dashboard-facilitador/eventodetail/${eventId}`);
+          })
+          .catch((error) => {
+            console.error("Error al crear la sesión: ", error);
+          });
+      } else {
+        console.error("No se encontró el ID del evento");
+      }
     },
   });
 
-  // Función para agregar una fecha
+  // Actualiza eventId solo si es necesario
+  useEffect(() => {
+    if (eventId && formik.values.eventId !== eventId) {
+      formik.setFieldValue("eventId", eventId);
+    }
+  }, [eventId, formik.values.eventId, formik]);
+
+  // Funciones de manejo de fechas
   const handleAddFecha = () => {
     if (formik.values.dates.length < 6) {
       formik.setFieldValue("dates", [...formik.values.dates, ""]);
@@ -61,27 +73,24 @@ const SessionesForm = () => {
     }
   };
 
-  // Función para eliminar una fecha
   const handleRemoveFecha = (index) => {
     const nuevasFechas = [...formik.values.dates];
     nuevasFechas.splice(index, 1);
     formik.setFieldValue("dates", nuevasFechas);
   };
 
-  // Función para manejar el cambio de una fecha
   const handleFechaChange = (index, value) => {
     const nuevasFechas = [...formik.values.dates];
     nuevasFechas[index] = value;
     formik.setFieldValue("dates", nuevasFechas);
   };
 
-  // Verifica si el evento actual existe
   if (!eventId) {
     return <div>No se encontró el evento. Verifica el ID en la URL.</div>;
   }
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form onSubmit={formik.handleSubmit} key={eventId}>
       <h2>Programar Sesiones para: {eventoActual?.eventName}</h2>
 
       <div>

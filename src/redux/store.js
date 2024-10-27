@@ -4,7 +4,7 @@ import LoginSlice from "./login/LoginUsersSlice";
 import FacilitadoresSlice from "./registerFacilitador/registerFacilitadorSlice";
 import CreateEventoSlice from "./eventos/CreateEventoSlice";
 import EventosSlice from "./eventos/GetEventosSlice";
-import ProgramacionSessionSlice from "./eventos/GetProgramacionSesionSlice";
+import SessionSlice from "./eventos/GetProgramacionSesionSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,7 +12,7 @@ const store = configureStore({
     facilitadores: FacilitadoresSlice,
     evento: CreateEventoSlice,
     eventos: EventosSlice,
-    sesiones: ProgramacionSessionSlice,
+    sessions: SessionSlice,
   },
 });
 
