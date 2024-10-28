@@ -1,0 +1,74 @@
+/* Contenedor general del formulario */
+form {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+/* Encabezado del formulario */
+h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Campo de entrada */
+.MuiTextField-root {
+  width: 100%;
+}
+
+/* Caja de entrada y espaciado */
+form .MuiBox-root {
+  display: grid;
+  gap: 16px;
+}
+
+/* Botones de navegación */
+.MuiButton-root {
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 4px;
+}
+
+button[type="button"].MuiButton-outlinedPrimary {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+button[type="button"].MuiButton-outlinedPrimary:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+button[type="submit"].MuiButton-containedPrimary {
+  background-color: #28a745;
+}
+
+button[type="submit"].MuiButton-containedPrimary:hover {
+  background-color: #218838;
+}
+
+/* Texto adicional y botón de instrucciones */
+.MuiTypography-root {
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+}
+
+button.MuiButton-textSecondary {
+  display: block;
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin: 0 auto;
+  text-transform: none;
+}
+
+button.MuiButton-textSecondary:hover {
+  color: #007bff;
+}

@@ -3,28 +3,33 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getEventos } from "../../../../redux/eventos/GetEventosSlice";
 import { getSessions } from "../../../../redux/eventos/GetProgramacionSesionSlice";
-import { getSegments } from "../../../../redux/eventos/GetSegmentsSlices";
+import { getSegments } from "../../../../redux/eventos/SegmentsEventosSlice";
 
 const EventDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  // Accede a los estados de eventos, sesiones y segmentos
+  // Accede a los estados de eventos, sesiones, segmentos y bitácora
   const eventos = useSelector((state) => state.eventos.eventos);
   const sessions = useSelector((state) => state.sessions.sessions);
   const segmentos = useSelector((state) => state.segmentos.segmentos);
+  const bitacora = useSelector((state) => state.bitacora.bitacora); // Suponiendo que tienes este selector
   const loadingEventos = useSelector((state) => state.eventos.loading);
   const loadingSegmentos = useSelector((state) => state.segmentos.loading);
+  const loadingBitacora = useSelector((state) => state.bitacora.loading); // Suponiendo que tienes este estado de carga
 
   const eventoActual = eventos.find((evento) => evento.id === Number(id));
 
   useEffect(() => {
     if (!eventos.length) dispatch(getEventos());
-    if (eventoActual) dispatch(getSessions(eventoActual.id));
-    if (eventoActual) dispatch(getSegments(eventoActual.id));
+    if (eventoActual) {
+      dispatch(getSessions(eventoActual.id));
+      dispatch(getSegments(eventoActual.id));
+      // Asegúrate de que esta llamada esté aquí
+    }
   }, [dispatch, eventos, eventoActual]);
 
-  if (loadingEventos || loadingSegmentos)
+  if (loadingEventos || loadingSegmentos || loadingBitacora)
     return <div>Cargando el evento...</div>;
   if (!eventoActual) return <div>No se encontró el evento con ID {id}.</div>;
 
@@ -44,6 +49,8 @@ const EventDetail = () => {
       <p>Descripción: {eventoActual.description}</p>
       <img src={eventoActual.eventImage} alt={eventoActual.eventName} />
       <p>Estado: {eventoActual.isActive ? "Activo" : "Inactivo"}</p>
+
+      {bitacora && <h6 style={{ color: "green" }}>Bitácora Activa</h6>}
 
       <h3>Programación de Sesiones</h3>
       {sessionsFiltradas.length > 0 ? (

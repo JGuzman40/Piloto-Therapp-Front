@@ -1,0 +1,194 @@
+/* EstadosForm.css */
+
+.estados-form-container {
+  display: flex;
+  flex-direction: column; /* EstadosForm.css */
+
+  .estados-form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    max-width: 100%;
+    background-color: #a93ae9; /* Fondo claro */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .estados-form-title {
+    color: #cc93e9; /* Tono oscuro para el título */
+    margin-bottom: 16px;
+  }
+
+  .estados-form-slider {
+    display: flex;
+    align-items: center;
+    overflow-x: hidden; /* Ocultar scroll */
+    margin: 16px 0;
+    width: 100%;
+  }
+
+  .estados-form-grid {
+    display: flex; /* Flexbox en fila */
+    gap: 16px; /* Espacio entre tarjetas */
+    flex-direction: row; /* Alinear en horizontal */
+    overflow-x: auto; /* Permitir desplazamiento horizontal */
+    white-space: nowrap; /* Evitar salto de línea en las cards */
+  }
+
+  .estado-card {
+    flex: 0 0 auto; /* Ancho fijo para cada tarjeta */
+    width: 300px; /* Ajusta el ancho según tus necesidades */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+  }
+
+  .estado-card:hover {
+    transform: scale(1.02);
+  }
+
+  .estado-card-content {
+    padding: 16px;
+  }
+
+  .estado-title {
+    font-weight: bold;
+    color: #1976d2;
+  }
+
+  .estado-linea-base {
+    color: #555;
+  }
+
+  .estado-descripcion {
+    margin: 8px 0;
+    color: #777;
+  }
+
+  .estado-select,
+  .estado-comentario {
+    margin-top: 16px;
+    width: 100%;
+  }
+
+  .arrow-button {
+    color: #1976d2;
+    margin: 0 10px;
+  }
+
+  .estados-form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+
+  .btn-guardar {
+    background-color: #43036d;
+    color: white;
+  }
+
+  .btn-guardar:hover {
+    background-color: #6d1bef;
+  }
+
+  .btn-siguiente {
+    color: #1976d2;
+    border: 1px solid #1976d2;
+  }
+
+  .btn-siguiente:hover {
+    background-color: rgba(93, 12, 223, 0.1);
+  }
+
+  padding: 16px;
+  max-width: 100%;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.estados-form-title {
+  color: #333; /* Tono oscuro para el título */
+  margin-bottom: 16px;
+}
+
+.estados-form-slider {
+  display: flex;
+  align-items: center;
+  overflow-x: hidden; /* Ocultar scroll */
+  margin: 16px 0;
+}
+
+.estados-form-grid {
+  display: flex; /* Flexbox en fila */
+  gap: 16px; /* Espacio entre tarjetas */
+  overflow-x: auto; /* Permitir desplazamiento horizontal */
+  scroll-behavior: smooth; /* Desplazamiento suave */
+}
+
+.estado-card {
+  flex: 0 0 auto; /* Ancho fijo para cada tarjeta */
+  width: 300px;
+  background-color: #fff; /* Fondo blanco para las tarjetas */
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.estado-card:hover {
+  transform: scale(1.02);
+}
+
+.estado-card-content {
+  padding: 16px;
+}
+
+.estado-title {
+  font-weight: bold;
+  color: #1976d2;
+}
+
+.estado-linea-base {
+  color: #555;
+}
+
+.estado-descripcion {
+  margin: 8px 0;
+  color: #777;
+}
+
+.estado-select,
+.estado-comentario {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.arrow-button {
+  color: #1976d2;
+  margin: 0 10px;
+}
+
+.estados-form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.btn-guardar {
+  background-color: #810be1;
+  color: white;
+}
+
+.btn-guardar:hover {
+  background-color: #a026f1;
+}
+
+.btn-siguiente {
+  color: #1976d2;
+  border: 1px solid #1976d2;
+}
+
+.btn-siguiente:hover {
+  background-color: rgba(25, 118, 210, 0.1);
+}

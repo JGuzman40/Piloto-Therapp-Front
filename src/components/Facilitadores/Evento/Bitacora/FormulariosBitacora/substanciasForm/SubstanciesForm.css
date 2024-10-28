@@ -1,0 +1,88 @@
+:root {
+  --background-color: #2a2a3b;
+  --text-color: #ddecfc;
+  --accent-color: #e45ff6;
+  --input-background: #353547;
+  --button-hover-color: #4a4a5e;
+  --error-color: #ff7675;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.form-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-field {
+  margin-bottom: 15px;
+}
+
+.form-field label {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.form-field select,
+.form-field input,
+.form-field textarea {
+  background-color: var(--input-background);
+  color: var(--text-color);
+  border: 1px solid var(--accent-color);
+  padding: 8px;
+  border-radius: 4px;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.form-field select:focus,
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 4px rgba(228, 95, 246, 0.5);
+}
+
+.helper-text {
+  color: var(--error-color);
+  font-size: 0.85rem;
+  margin-top: 3px;
+}
+
+.form-button {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  background-color: var(--accent-color);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.form-button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.form-button:active {
+  background-color: var(--accent-color);
+}

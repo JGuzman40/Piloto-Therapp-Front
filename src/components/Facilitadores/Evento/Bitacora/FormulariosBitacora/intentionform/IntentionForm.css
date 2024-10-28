@@ -1,0 +1,65 @@
+/* Contenedor principal del formulario */
+.form-container {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: #f7e8e8;
+}
+
+/* Botones de alternancia */
+.button-toggle {
+  width: 100%;
+  text-align: left;
+  font-weight: bold;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #ebe2e2;
+}
+
+.button-toggle:hover {
+  background-color: #e0e0e0;
+}
+
+/* Campo de formulario */
+.form-field {
+  margin-top: 10px;
+}
+
+/* Botón de enviar */
+button[type="submit"] {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #e7eef6;
+  color: rgb(3, 2, 2);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #c136e7;
+}
+
+/* Botón de retroceder */
+.previous-button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.previous-button:hover {
+  background-color: #5a6268;
+}

@@ -1,0 +1,57 @@
+/* Contenedor de elementos */
+.elements-container {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f0f4f8; /* Color claro para contrastar */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo del título de la sección de elementos */
+.elements-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--secondary-color); /* Personaliza con un color secundario */
+}
+
+/* Elemento individual */
+.element-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 8px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  transition: background-color 0.2s;
+}
+
+/* Cambio de color en hover */
+.element-item:hover {
+  background-color: #f9f9f9;
+}
+
+/* Nombre del elemento */
+.element-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333333;
+}
+
+/* Botón de acción del elemento */
+.element-action-button {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  background-color: #6c757d; /* Cambiado a gris */
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.element-action-button:hover {
+  background-color: #5a6268; /* Color gris más oscuro en hover */
+}
